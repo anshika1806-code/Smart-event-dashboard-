@@ -1,21 +1,27 @@
-    /* Basic styling for better appearance */
+    
         body { 
+            background-image: url('image.png');
+                background-size: cover; 
+                background-position: center;
             font-family: Arial, sans-serif; 
             margin: 20px; 
             background-color: #9a96ea92; 
         }
-        h1, h2 { 
-            color: #333; 
+        h1 { 
+            color:#edadde; 
+            align-items: center;
+             text-align: center;
         }
-        /* Main container using Flexbox */
+
+        
         .main-container {
             display: flex;
             gap: 20px;
-            flex-wrap: wrap; /* Allows wrapping on smaller screens */
+            flex-wrap: wrap; 
         }
         .add-event-section, .my-events-section {
             flex: 1;
-            min-width: 300px; /* Ensures minimum width for responsiveness */
+            min-width: 300px; 
         }
         .add-event-section {
             background: #fff; 
@@ -31,7 +37,8 @@
         }
         form { 
             margin-bottom: 20px;
-            padding:10px
+            padding: 0 20px;
+            width: 500px; 
         }
         label { 
             display: block; 
@@ -69,12 +76,24 @@
         #addSample:hover { 
             background-color: #218838; 
         }
-        /* Grid layout for the event cards within My Events */
+        #eventList { 
+            list-style: none; 
+            padding: 0; 
+        }
+        #EventContainer h2 {
+            color: #007bff;
+        }
+        #container{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
         #allEventContainer { 
             display: grid; 
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
             gap: 15px; 
             margin-top: 20px; 
+            color: plum;
         }
         .event-card { 
             background: #fff; 
@@ -116,11 +135,10 @@
             margin: 10px 0 0 0; 
             color: #333; 
         }
-        /* Responsive adjustments */
+        
         @media (max-width: 768px) {
             .main-container {
                 flex-direction: column;
             }
         }
-
     
