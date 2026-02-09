@@ -56,24 +56,45 @@ let eventDate = document.querySelector('#eventDate');
 let eventCategory = document.querySelector('#eventCategory');
 let eventDescription = document.querySelector('#eventDescription');
 let allEventContainer = document.querySelector('#allEventContainer');
+let addSampleBtn = document.querySelector('#addSample');
+let card = document.createElement('div');
 
 function addEventfunction(event) {
   event.preventDefault();
-  let card = document.createElement('div');
-  card.innerHTML = `<button>X</button>
-                        <h4>${eventTitle.value}</h4>
+
+  card.innerHTML = `    <h4>${eventTitle.value}</h4>
                         <span>${eventDate.value}</span><br>
                         <span>${eventCategory.value}</span>
                         <p>${eventDescription.value}</p>`;
-  allEventContainer.append(card);
+    let deleteBtn = document.createElement('button');
+    deleteBtn.className = 'delete-btn';
+    deleteBtn.textContent = 'X';
+    deleteBtn.onclick = function() {
+        card.remove();
+        
+    };
+
+    card.prepend(deleteBtn);
+    allEventContainer.append(card);
+  
   form.reset();
 }
+function addSampleEvents() {
+    eventName.value = 'Tech Conference';
+    eventDate.value = '2026-03-20';
+    eventCategory.value = 'conference';
+    eventDescription.value = 'Technology conference featuring the latest innovations.';
+    addEventfunction(new Event('submit'));
+}
+addSampleBtn.addEventListener('click', addSampleEvents);
+
 form.addEventListener('submit', addEventfunction);
 function clearAllEventFUnction() {
     allEventContainer.innerHTML = '<h3>No Events Yet</h3>';
 }
 form.addEventListener('submit', addEventfunction);
 document.querySelector('#clearEvent').addEventListener('click', clearAllEventFUnction);
+
 
 </script>
 </body>
